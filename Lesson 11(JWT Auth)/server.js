@@ -4,18 +4,13 @@ const cors = require("cors");
 const path = require("path");
 const corsOptions = require("./Config/corsOption");
 const { logger } = require("./Middleware/logEvents");
+const verifyJWT = require("./Middleware/verifyJWT");
 const errorHandler = require("./Middleware/errHandler");
 const PORT = process.env.PORT || 3500;
 
 // BIULT IN
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-// ROUTES
-app.use("/", require("./Routes/root"));
-app.use("/register", require("./Routes/register"));
-app.use("/auth", require("./Routes/auth"));
-app.use("/employees", require("./Routes/api/employees"));
 
 // STATIC ROUTES
 app.use("/", express.static(path.join(__dirname, "public")));
@@ -39,6 +34,14 @@ app.use(cors(corsOptions));
 // ALTERNATIVE METHOD
 // app.get("/testing(.html)?" , (req,res) =>{
 //   res.redirect(301, "new-page.html")})
+
+// ROUTES
+app.use("/", require("./Routes/root"));
+app.use("/register", require("./Routes/register"));
+app.use("/auth", require("./Routes/auth"));
+
+app.use(verifyJWT);
+app.use("/employees", require("./Routes/api/employees"));
 
 // APP.ALL IS THE ROUTE HANDLER FOR ALL REQUESTS
 app.all("*", (req, res) => {

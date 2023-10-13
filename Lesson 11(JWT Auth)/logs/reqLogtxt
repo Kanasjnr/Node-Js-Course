@@ -136,3 +136,4 @@
 20231011	14:44:44	4a80a3a2-53eb-426f-86ea-bbb5b239dc88	DELETE	undefined	/employees/1
 20231012	11:36:04	1561ecde-a36f-49a7-b9d2-e2923c90009e	GET	undefined	/auth
 20231012	11:37:55	99b44ea5-86cc-478b-9524-a40fb45ac850	POST	undefined	/register/auth
+20231013	08:55:07	2be280cb-a843-405a-bbe7-b8b1ee9be682	DELETE	undefined	/employees/6
