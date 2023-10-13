@@ -4,8 +4,9 @@ const cors = require("cors");
 const path = require("path");
 const corsOptions = require("./Config/corsOption");
 const { logger } = require("./Middleware/logEvents");
-const verifyJWT = require("./Middleware/verifyJWT");
 const errorHandler = require("./Middleware/errHandler");
+const verifyJWT = require("./Middleware/verifyJWT");
+const cookieParser = require("cookie-parser")
 const PORT = process.env.PORT || 3500;
 
 // BIULT IN
@@ -39,6 +40,7 @@ app.use(cors(corsOptions));
 app.use("/", require("./Routes/root"));
 app.use("/register", require("./Routes/register"));
 app.use("/auth", require("./Routes/auth"));
+app.use("/refresh", require("./Routes/refresh"))
 
 app.use(verifyJWT);
 app.use("/employees", require("./Routes/api/employees"));
