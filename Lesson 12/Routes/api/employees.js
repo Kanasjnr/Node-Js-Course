@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
-employeesController = require("../../Controllers/employeesController");
+const employeesController = require("../../Controllers/employeesController");
+const ROLES_LIST = require("../../Config/roles_list");
+const verifyRoles = require("../../Middleware/verifyRoles");
 
 router
   .route("/")
