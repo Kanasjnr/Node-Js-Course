@@ -6,7 +6,7 @@ const corsOptions = require("./Config/corsOption");
 const { logger } = require("./Middleware/logEvents");
 const errorHandler = require("./Middleware/errHandler");
 const verifyJWT = require("./Middleware/verifyJWT");
-const cookieParser = require("cookie-parser")
+const cookieParser = require("cookie-parser");
 const PORT = process.env.PORT || 3500;
 
 // BIULT IN
@@ -40,10 +40,11 @@ app.use(cors(corsOptions));
 app.use("/", require("./Routes/root"));
 app.use("/register", require("./Routes/register"));
 app.use("/auth", require("./Routes/auth"));
-app.use("/refresh", require("./Routes/refresh"))
+app.use("/refresh", require("./Routes/refresh"));
 
 app.use(verifyJWT);
 app.use("/employees", require("./Routes/api/employees"));
+app.use("/logOut", require("./Routes/logOut"));
 
 // APP.ALL IS THE ROUTE HANDLER FOR ALL REQUESTS
 app.all("*", (req, res) => {
