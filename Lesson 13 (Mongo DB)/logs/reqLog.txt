@@ -53,3 +53,13 @@
 20231017	10:43:34	6bf874ae-e0bb-49dc-b938-83e0feb9bfec	POST	undefined	/auth
 20231017	10:43:51	7b11d9bc-8957-46ee-a6b2-4aacc19da3d5	POST	undefined	/employees
 20231017	10:43:57	0e41daa9-d10b-47d3-b4da-80f644cb8f3a	GET	undefined	/employees
+20231017	15:02:56	da2823da-39aa-4908-99bc-bead810759cd	POST	undefined	/register
+20231017	15:03:13	dd954f21-1fca-43b2-abde-2d6ea9034fc6	POST	undefined	/register
+20231017	15:03:27	34334e73-e0d9-46e9-a2d9-ce091f5195c6	POST	undefined	/register
+20231017	15:05:54	94615193-f7e0-4311-beae-bd83a0e735bc	POST	undefined	/register
+20231017	15:39:30	ae4b40c3-9743-48b2-a89b-c54fa07d5705	POST	undefined	/auth
+20231017	15:58:39	a3f91af3-afbe-4f05-93f7-3f519728af73	GET	undefined	/logOut?user=supreme&pwd=998TF
+20231017	15:59:55	75227153-7893-4991-af04-c21cb55134e8	GET	undefined	/logOut
+20231018	09:25:07	ed8040f5-a86c-42bb-8e79-e30d42e7241b	POST	undefined	/register
+20231018	09:25:29	a61352d7-1db7-462a-9937-198dc2de39ee	POST	undefined	/auth
+20231018	09:25:34	846d2737-b473-48da-806f-0707e5ed38b5	GET	undefined	/logOut
