@@ -1,8 +1,10 @@
-const jwt = require("jsonwebtoken");
+;const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const User = require("../model/User");
 
 const handleLogin = async (req, res) => {
+  const cookies = req.cookies
+  console.log(`cookie availabe at login:${JSON.stringify(cookies)}`);
   const { user, pwd } = req.body;
   if (!user || !pwd)
     return res
@@ -22,24 +24,35 @@ const handleLogin = async (req, res) => {
           roles: roles,
         },
       },
+
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "300s" }
+      { expiresIn: "60s" }
     );
-    const refreshToken = jwt.sign(
+
+    const newRefreshToken = jwt.sign(
       { username: foundUser.username },
       process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: "1d" }
     );
-    // Saving refreshToken with current user
-    foundUser.refreshToken = refreshToken;
-    const result = await foundUser.save();
+
+      const newRefreshTokenArray = !cookies?.jwt
+      ? foundUser.refreshToken
+      : foundUser.refreshToken.filter(rt => rt !== cookies.jwt)
+
+    if(cookies)  res.clearCookie("jwt", { httpOnly: true, sameSite: "None" });
+
+    foundUser.refreshToken = [...newRefreshTokenArray, newRefreshToken]
+    const result = await foundUser.save()
     console.log(result);
-    res.cookie("jwt", refreshToken, {
+
+    res.cookie("jwt", newRefreshToken, {
       httpOnly: true,
       sameSite: "None",
       maxAge: 24 * 60 * 60 * 1000,
     });
+
     res.json({ accessToken });
+
   } else {
     res.sendStatus(401);
   }
