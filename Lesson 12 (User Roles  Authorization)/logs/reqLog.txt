@@ -53,3 +53,7 @@
 20231017	10:43:34	6bf874ae-e0bb-49dc-b938-83e0feb9bfec	POST	undefined	/auth
 20231017	10:43:51	7b11d9bc-8957-46ee-a6b2-4aacc19da3d5	POST	undefined	/employees
 20231017	10:43:57	0e41daa9-d10b-47d3-b4da-80f644cb8f3a	GET	undefined	/employees
+20231114	11:21:10	5f17a072-017e-44e7-b225-03c481038d57	OPTIONS	http://localhost:5173	/auth
+20231114	11:21:10	e4a03286-3d3a-422c-8dab-d8b5df105df1	POST	http://localhost:5173	/auth
+20231114	11:22:54	d3471fc6-4f64-4b0d-8040-b4ef639c2961	OPTIONS	http://localhost:5173	/auth
+20231114	11:22:54	583c3bf3-313d-42e8-8a46-1139f65a4d47	POST	http://localhost:5173	/auth
