@@ -14,7 +14,7 @@ const connectDb = require("./config/dbCon");
 
 connectDb()
 
-const PORT = process.env.PORT || 3200;
+const PORT = process.env.PORT || 3100;
 
 // custom middleware logger
 app.use(logger);
